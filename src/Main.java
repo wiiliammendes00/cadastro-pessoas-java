@@ -10,5 +10,11 @@ public class Main {
 
         System.out.println("\nBuscando João:");
         cadastro.buscar("João");
+
+        System.out.println("\nRemovendo João:");
+        cadastro.removerPorNome("João");
+
+        System.out.println("\nLista após remoção:");
+        cadastro.listar();
     }
 }

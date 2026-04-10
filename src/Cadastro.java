@@ -22,4 +22,15 @@ public class Cadastro {
         }
         System.out.println("Não encontrado.");
     }
+
+    public void removerPorNome(String nome) {
+        for (Pessoa p : lista) {
+            if (p.getNome().equalsIgnoreCase(nome)) {
+                lista.remove(p);
+                System.out.println("Removido: " + p);
+                return;
+            }
+        }
+        System.out.println("Não encontrado.");
+    }
 }
