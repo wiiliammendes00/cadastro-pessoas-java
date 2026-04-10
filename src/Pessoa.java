@@ -11,6 +11,7 @@ public class Pessoa {
         return nome;
     }
 
+    @Override
     public String toString() {
         return nome + " - " + idade;
     }

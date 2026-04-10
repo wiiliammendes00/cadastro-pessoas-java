@@ -12,4 +12,14 @@ public class Cadastro {
             System.out.println(p);
         }
     }
+
+    public void buscar(String nome) {
+        for (Pessoa p : lista) {
+            if (p.getNome().equalsIgnoreCase(nome)) {
+                System.out.println("Encontrado: " + p);
+                return;
+            }
+        }
+        System.out.println("Não encontrado.");
+    }
 }

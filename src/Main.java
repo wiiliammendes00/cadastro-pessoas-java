@@ -7,5 +7,8 @@ public class Main {
         cadastro.adicionar(new Pessoa("João", 25));
 
         cadastro.listar();
+
+        System.out.println("\nBuscando João:");
+        cadastro.buscar("João");
     }
 }
