@@ -36,4 +36,8 @@ public class Cadastro {
         }
         System.out.println("Não encontrado.");
     }
+
+    public void ordenarPorNome() {
+        Collections.sort(lista);
+    }
 }

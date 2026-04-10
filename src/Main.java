@@ -5,16 +5,13 @@ public class Main {
 
         cadastro.adicionar(new Pessoa("William", 20));
         cadastro.adicionar(new Pessoa("João", 25));
+        cadastro.adicionar(new Pessoa("Ana", 18));
 
+        System.out.println("Lista original:");
         cadastro.listar();
 
-        System.out.println("\nBuscando João:");
-        cadastro.buscar("João");
-
-        System.out.println("\nRemovendo João:");
-        cadastro.removerPorNome("João");
-
-        System.out.println("\nLista após remoção:");
+        System.out.println("\nOrdenando por nome:");
+        cadastro.ordenarPorNome();
         cadastro.listar();
     }
 }
