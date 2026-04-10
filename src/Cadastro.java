@@ -24,9 +24,12 @@ public class Cadastro {
     }
 
     public void removerPorNome(String nome) {
-        for (Pessoa p : lista) {
+        Iterator<Pessoa> it = lista.iterator();
+
+        while (it.hasNext()) {
+            Pessoa p = it.next();
             if (p.getNome().equalsIgnoreCase(nome)) {
-                lista.remove(p);
+                it.remove();
                 System.out.println("Removido: " + p);
                 return;
             }
