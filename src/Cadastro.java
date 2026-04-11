@@ -40,4 +40,8 @@ public class Cadastro {
     public void ordenarPorNome() {
         Collections.sort(lista);
     }
+
+    public void ordenarPorIdade() {
+        lista.sort((a, b) -> Integer.compare(a.getIdade(), b.getIdade()));
+    }
 }

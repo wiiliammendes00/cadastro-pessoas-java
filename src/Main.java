@@ -13,5 +13,9 @@ public class Main {
         System.out.println("\nOrdenando por nome:");
         cadastro.ordenarPorNome();
         cadastro.listar();
+
+        System.out.println("\nOrdenando por idade:");
+        cadastro.ordenarPorIdade();
+        cadastro.listar();
     }
 }
