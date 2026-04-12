@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Cadastro {
-    private List<Pessoa> lista = new ArrayList<>();
+    private List<Pessoa> lista = new LinkedList<>();
 
     public void adicionar(Pessoa p) {
         lista.add(p);
