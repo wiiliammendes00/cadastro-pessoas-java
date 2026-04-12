@@ -17,5 +17,8 @@ public class Main {
         System.out.println("\nOrdenando por idade:");
         cadastro.ordenarPorIdade();
         cadastro.listar();
+
+        System.out.println("\nLista em ordem reversa:");
+        cadastro.listarReverso();
     }
 }

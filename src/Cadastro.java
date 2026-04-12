@@ -44,4 +44,13 @@ public class Cadastro {
     public void ordenarPorIdade() {
         lista.sort((a, b) -> Integer.compare(a.getIdade(), b.getIdade()));
     }
+
+    public void listarReverso() {
+        ListIterator<Pessoa> it = lista.listIterator(lista.size());
+
+        while (it.hasPrevious()) {
+            Pessoa p = it.previous();
+            System.out.println(p);
+        }
+    }
 }
