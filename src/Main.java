@@ -20,7 +20,7 @@ public class Main {
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
 
-            // ✅ leitura correta
+
             opcao = Integer.parseInt(scanner.nextLine());
 
             switch (opcao) {
@@ -33,7 +33,6 @@ public class Main {
                     int idade = Integer.parseInt(scanner.nextLine());
 
                     cadastro.adicionar(new Pessoa(nome, idade));
-                    System.out.println("Pessoa adicionada!");
                     break;
 
                 case 2:

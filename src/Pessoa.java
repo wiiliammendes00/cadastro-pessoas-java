@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Pessoa implements Comparable<Pessoa> {
     private String nome;
     private int idade;
@@ -20,8 +22,22 @@ public class Pessoa implements Comparable<Pessoa> {
         return nome + " - " + idade;
     }
 
-    @Override
+     @Override
     public int compareTo(Pessoa outra) {
-        return this.nome.compareToIgnoreCase(outra.nome);
+        return this.nome.compareTo(outra.nome);
+    }
+
+        @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pessoa)) return false;
+        Pessoa pessoa = (Pessoa) o;
+        return idade == pessoa.idade &&
+                nome.equalsIgnoreCase(pessoa.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome.toLowerCase(), idade);
     }
 }

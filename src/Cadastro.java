@@ -1,10 +1,15 @@
 import java.util.*;
 
 public class Cadastro {
-    private List<Pessoa> lista = new LinkedList<>();
+
+    private Set<Pessoa> lista = new HashSet<>();
 
     public void adicionar(Pessoa p) {
-        lista.add(p);
+        if (lista.add(p)) {
+            System.out.println("Pessoa adicionada!");
+        } else {
+            System.out.println("Pessoa já existe!");
+        }
     }
 
     public void listar() {
@@ -38,19 +43,27 @@ public class Cadastro {
     }
 
     public void ordenarPorNome() {
-        Collections.sort(lista);
+        List<Pessoa> temp = new ArrayList<>(lista);
+        Collections.sort(temp);
+        for (Pessoa p : temp) {
+            System.out.println(p);
+        }
     }
 
     public void ordenarPorIdade() {
-        lista.sort((a, b) -> Integer.compare(a.getIdade(), b.getIdade()));
+        List<Pessoa> temp = new ArrayList<>(lista);
+        temp.sort((a, b) -> Integer.compare(a.getIdade(), b.getIdade()));
+        for (Pessoa p : temp) {
+            System.out.println(p);
+        }
     }
 
     public void listarReverso() {
-        ListIterator<Pessoa> it = lista.listIterator(lista.size());
+        List<Pessoa> temp = new ArrayList<>(lista);
+        ListIterator<Pessoa> it = temp.listIterator(temp.size());
 
         while (it.hasPrevious()) {
-            Pessoa p = it.previous();
-            System.out.println(p);
+            System.out.println(it.previous());
         }
     }
 }
