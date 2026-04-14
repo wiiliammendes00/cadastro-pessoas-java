@@ -2,65 +2,64 @@ import java.util.*;
 
 public class Cadastro {
 
-    private Set<Pessoa> lista = new HashSet<>();
+    private Map<String, Pessoa> mapa = new HashMap<>();
 
     public void adicionar(Pessoa p) {
-        if (lista.add(p)) {
-            System.out.println("Pessoa adicionada!");
-        } else {
+        String chave = p.getNome().toLowerCase();
+
+        if (mapa.containsKey(chave)) {
             System.out.println("Pessoa já existe!");
+        } else {
+            mapa.put(chave, p);
+            System.out.println("Pessoa adicionada!");
         }
     }
 
     public void listar() {
-        for (Pessoa p : lista) {
+        for (Pessoa p : mapa.values()) {
             System.out.println(p);
         }
     }
 
     public void buscar(String nome) {
-        for (Pessoa p : lista) {
-            if (p.getNome().equalsIgnoreCase(nome)) {
-                System.out.println("Encontrado: " + p);
-                return;
-            }
+        Pessoa p = mapa.get(nome.toLowerCase());
+
+        if (p != null) {
+            System.out.println("Encontrado: " + p);
+        } else {
+            System.out.println("Não encontrado.");
         }
-        System.out.println("Não encontrado.");
     }
 
     public void removerPorNome(String nome) {
-        Iterator<Pessoa> it = lista.iterator();
+        Pessoa removida = mapa.remove(nome.toLowerCase());
 
-        while (it.hasNext()) {
-            Pessoa p = it.next();
-            if (p.getNome().equalsIgnoreCase(nome)) {
-                it.remove();
-                System.out.println("Removido: " + p);
-                return;
-            }
+        if (removida != null) {
+            System.out.println("Removido: " + removida);
+        } else {
+            System.out.println("Não encontrado.");
         }
-        System.out.println("Não encontrado.");
     }
 
     public void ordenarPorNome() {
-        List<Pessoa> temp = new ArrayList<>(lista);
-        Collections.sort(temp);
-        for (Pessoa p : temp) {
+        List<Pessoa> lista = new ArrayList<>(mapa.values());
+        Collections.sort(lista);
+        for (Pessoa p : lista) {
             System.out.println(p);
         }
     }
 
     public void ordenarPorIdade() {
-        List<Pessoa> temp = new ArrayList<>(lista);
-        temp.sort((a, b) -> Integer.compare(a.getIdade(), b.getIdade()));
-        for (Pessoa p : temp) {
+        List<Pessoa> lista = new ArrayList<>(mapa.values());
+        lista.sort((a, b) -> Integer.compare(a.getIdade(), b.getIdade()));
+        for (Pessoa p : lista) {
             System.out.println(p);
         }
     }
 
     public void listarReverso() {
-        List<Pessoa> temp = new ArrayList<>(lista);
-        ListIterator<Pessoa> it = temp.listIterator(temp.size());
+        List<Pessoa> lista = new ArrayList<>(mapa.values());
+        ListIterator<Pessoa> it = lista.listIterator(lista.size());
 
         while (it.hasPrevious()) {
             System.out.println(it.previous());
