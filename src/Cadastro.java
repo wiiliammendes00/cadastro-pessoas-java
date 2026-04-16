@@ -15,8 +15,12 @@ public class Cadastro {
         }
     }
 
+        public Collection<Pessoa> listarImutavel() {
+        return Collections.unmodifiableCollection(mapa.values());
+    }
+
     public void listar() {
-        for (Pessoa p : mapa.values()) {
+        for (Pessoa p : listarImutavel()) {
             System.out.println(p);
         }
     }
@@ -44,6 +48,7 @@ public class Cadastro {
     public void ordenarPorNome() {
         List<Pessoa> lista = new ArrayList<>(mapa.values());
         Collections.sort(lista);
+
         for (Pessoa p : lista) {
             System.out.println(p);
         }
@@ -52,6 +57,7 @@ public class Cadastro {
     public void ordenarPorIdade() {
         List<Pessoa> lista = new ArrayList<>(mapa.values());
         lista.sort((a, b) -> Integer.compare(a.getIdade(), b.getIdade()));
+
         for (Pessoa p : lista) {
             System.out.println(p);
         }
