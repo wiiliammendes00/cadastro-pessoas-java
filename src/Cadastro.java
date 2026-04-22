@@ -15,12 +15,10 @@ public class Cadastro {
         }
     }
 
-        public Collection<Pessoa> listarImutavel() {
-        return Collections.unmodifiableCollection(mapa.values());
-    }
-
     public void listar() {
-        for (Pessoa p : listarImutavel()) {
+        Set<Pessoa> conjunto = new TreeSet<>(mapa.values());
+
+        for (Pessoa p : conjunto) {
             System.out.println(p);
         }
     }
@@ -71,4 +69,5 @@ public class Cadastro {
             System.out.println(it.previous());
         }
     }
+
 }
